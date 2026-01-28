@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ellevve Planejados LTDA - Marcenaria de Excelência</title>
+    <title>Ellevve Planejados LTDA - Marcenaria Premium de Excelência</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,150 +14,200 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafbfc;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e8e8e8;
-            padding: 2rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-bottom: 1px solid #e0e6ed;
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
             font-weight: 700;
-            color: #2c3e50;
-            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .logo span {
-            color: #8b7355;
+            color: #d4a574;
+            font-size: 2.2rem;
         }
 
+        .logo-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.65rem;
+            color: #999;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        nav a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #d4a574;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            padding: 4rem 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: #ffffff;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            border-bottom: 1px solid #e8e8e8;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.8;
         }
 
         .hero-subtitle {
-            font-size: 0.95rem;
-            color: #8b7355;
+            font-size: 0.9rem;
+            color: #d4a574;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            margin-bottom: 1rem;
         }
 
-        .gallery {
-            padding: 4rem 0;
-            background-color: #ffffff;
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -2px;
         }
 
-        .gallery-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        .hero p {
+            font-size: 1.15rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
-        .gallery-subtitle {
-            text-align: center;
-            font-size: 1rem;
-            color: #999;
-            margin-bottom: 3rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #f9f9f9;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.02);
-        }
-
-        .gallery-item-title {
-            padding: 1.5rem;
-            background-color: #ffffff;
-            font-size: 1.1rem;
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4a574 0%, #c9945f 100%);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            color: #2c3e50;
-            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ===== ABOUT SECTION ===== */
         .about {
-            padding: 4rem 0;
-            background-color: #fafafa;
-            border-top: 1px solid #e8e8e8;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-top: 1px solid #e0e6ed;
+            border-bottom: 1px solid #e0e6ed;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
-        .about-text h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #1a1a1a;
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
@@ -162,110 +215,221 @@
         .about-text p {
             font-size: 1rem;
             color: #555;
-            margin-bottom: 1.2rem;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
             text-align: justify;
         }
 
         .about-highlight {
-            background-color: #f0f0f0;
-            padding: 2rem;
-            border-left: 4px solid #8b7355;
-            margin: 1.5rem 0;
-            border-radius: 4px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #f5f5f5 100%);
+            padding: 2.5rem;
+            border-left: 5px solid #d4a574;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .about-highlight p {
             margin: 0;
             color: #2c3e50;
             font-weight: 500;
+            line-height: 2;
         }
 
+        .about-visual {
+            background: linear-gradient(135deg, #d4a574 0%, #c9945f 100%);
+            border-radius: 12px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-visual-content {
+            color: #ffffff;
+        }
+
+        .about-visual-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-visual-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* ===== SERVICES SECTION ===== */
         .services {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background-color: #ffffff;
         }
 
-        .services-title {
+        .section-subtitle {
             text-align: center;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
-            font-weight: 700;
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .service-card {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
             text-align: center;
             border: 1px solid #e8e8e8;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574 0%, #c9945f 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
         .service-card:hover {
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-color: #8b7355;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #d4a574;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15);
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
         .service-card p {
             color: #666;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .contact {
-            padding: 4rem 0;
-            background-color: #fafafa;
-            border-top: 1px solid #e8e8e8;
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
-        .contact-title {
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-card {
+            background: linear-gradient(135deg, #d4a574 0%, #c9945f 100%);
+            border-radius: 12px;
+            padding: 3rem 2rem;
             text-align: center;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            color: #ffffff;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .portfolio-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 5rem 0;
+            background-color: #ffffff;
         }
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-item {
             text-align: center;
-            padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 8px;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
+            border-radius: 12px;
             border: 1px solid #e8e8e8;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #d4a574;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .contact-item h3 {
-            font-size: 1.1rem;
-            color: #2c3e50;
+            font-size: 1.3rem;
+            color: #1a1a1a;
             margin-bottom: 0.8rem;
             font-weight: 600;
         }
@@ -273,203 +437,416 @@
         .contact-item p {
             color: #666;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            padding: 5rem 0;
+            background-color: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .gallery-card {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            border-radius: 12px;
+            padding: 3rem 2rem;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-            border-top: 1px solid #1a252f;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .gallery-card:hover {
+            background: linear-gradient(135deg, #e8e8e8 0%, #d8d8d8 100%);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            border-color: #d4a574;
+        }
+
+        .gallery-icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: #d4a574;
+        }
+
+        .gallery-card h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .gallery-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid #333;
         }
 
         footer p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
         }
 
         footer .company-name {
-            font-weight: 600;
-            color: #8b7355;
+            font-weight: 700;
+            color: #d4a574;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
         }
 
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 1.5rem 0;
+        }
+
+        .footer-bottom {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
                 font-size: 2rem;
             }
 
-            .gallery-grid {
+            .gallery-grid,
+            .services-grid,
+            .portfolio-grid,
+            .contact-info {
                 grid-template-columns: 1fr;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
+            nav {
+                display: none;
             }
 
             .logo {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .gallery,
+            .about,
+            .services,
+            .portfolio,
+            .contact {
+                padding: 3rem 0;
             }
         }
 
-        .divider {
-            height: 1px;
-            background-color: #e8e8e8;
-            margin: 2rem 0;
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
-            <div class="logo">Ellevve <span>Planejados</span></div>
+            <div class="header-content">
+                <div class="logo">
+                    ◆ Ellevve <span>Planejados</span>
+                    <div class="logo-subtitle">Marcenaria Premium</div>
+                </div>
+                <nav>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#portfolio">Portfólio</a>
+                    <a href="#galeria">Galeria</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="container">
-            <p class="hero-subtitle">Marcenaria de Excelência</p>
-            <h1>Ellevve Planejados LTBA</h1>
-            <p>Transformamos espaços em ambientes sofisticados e funcionais através de soluções em marcenaria planejada de alta qualidade. Armários, móveis e projetos personalizados para sua casa ou negócio.</p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 class="gallery-title">Nossos Trabalhos</h2>
-            <p class="gallery-subtitle">Conheça alguns dos nossos projetos realizados</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/cozinha_luxo.jpg" alt="Cozinha de Luxo Planejada">
-                    <div class="gallery-item-title">Cozinha de Luxo</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/cozinha_planejada.jpg" alt="Cozinha Planejada Moderna">
-                    <div class="gallery-item-title">Cozinha Planejada</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/loja_comercial.jpg" alt="Loja Comercial com Marcenaria">
-                    <div class="gallery-item-title">Loja Comercial</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/cozinha_comercial.jpg" alt="Cozinha Comercial Profissional">
-                    <div class="gallery-item-title">Cozinha Comercial</div>
-                </div>
+            <div class="hero-content fade-in">
+                <p class="hero-subtitle">Excelência em Marcenaria</p>
+                <h1>Ellevve Planejados LTDA</h1>
+                <p>Transformamos seus espaços em ambientes sofisticados e funcionais através de soluções premium em marcenaria planejada. Projetos personalizados, acabamento impecável e qualidade incomparável.</p>
+                <button class="cta-button">Solicitar Orçamento</button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about" id="sobre">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Sobre a Ellevve Planejados</h2>
-                    <p>A Ellevve Planejados LTBA é uma empresa especializada em soluções de marcenaria planejada, oferecendo produtos e serviços de excelência para residências e estabelecimentos comerciais. Com anos de experiência no mercado, nos dedicamos a criar ambientes que combinam funcionalidade, estética e durabilidade.</p>
-                    <p>Nossos projetos são desenvolvidos com atenção aos detalhes, utilizando materiais de primeira qualidade e técnicas modernas de fabricação. Cada cliente recebe uma solução personalizada que atende perfeitamente às suas necessidades e expectativas.</p>
+                    <h2 class="section-title">Sobre a Ellevve Planejados</h2>
+                    <p>A Ellevve Planejados LTDA é uma empresa de referência em soluções de marcenaria planejada, especializada em criar ambientes sofisticados e funcionais para residências e estabelecimentos comerciais de alto padrão.</p>
+                    <p>Com anos de experiência e dedicação à excelência, desenvolvemos cada projeto com atenção minuciosa aos detalhes, utilizando materiais premium e técnicas modernas de fabricação. Nossa equipe qualificada trabalha para transformar suas ideias em realidade.</p>
                     <div class="about-highlight">
-                        <p>✓ Projetos personalizados e sob medida<br>✓ Materiais de alta qualidade<br>✓ Equipe experiente e qualificada<br>✓ Atendimento profissional e dedicado</p>
+                        <p>✓ Projetos personalizados e sob medida<br>
+                        ✓ Materiais de primeira qualidade<br>
+                        ✓ Equipe altamente qualificada<br>
+                        ✓ Atendimento profissional e dedicado<br>
+                        ✓ Garantia de satisfação total</p>
                     </div>
                 </div>
-                <div>
-                    <img src="images/cozinha_luxo.jpg" alt="Projeto Ellevve" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                <div class="about-visual">
+                    <div class="about-visual-content">
+                        <div class="about-visual-icon">🏆</div>
+                        <div class="about-visual-text">Marcenaria<br>de Excelência<br>Premium</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services" id="servicos">
         <div class="container">
-            <h2 class="services-title">Nossos Serviços</h2>
+            <h2 class="section-title" style="text-align: center;">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas em marcenaria planejada</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">📐</div>
                     <h3>Projeto Personalizado</h3>
-                    <p>Desenvolvemos projetos exclusivos conforme suas necessidades, garantindo funcionalidade e beleza em cada detalhe.</p>
+                    <p>Desenvolvemos projetos exclusivos conforme suas necessidades específicas, garantindo funcionalidade e beleza em cada detalhe.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🏠</div>
-                    <h3>Armários Residenciais</h3>
-                    <p>Soluções completas para cozinhas, quartos, salas e áreas de serviço, transformando seus ambientes.</p>
+                    <h3>Cozinhas Planejadas</h3>
+                    <p>Soluções completas para cozinhas residenciais com acabamento premium, otimizando espaço e funcionalidade.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🏪</div>
                     <h3>Marcenaria Comercial</h3>
-                    <p>Móveis e estruturas planejadas para lojas, consultórios, escritórios e outros estabelecimentos comerciais.</p>
+                    <p>Móveis e estruturas planejadas para lojas, consultórios, escritórios e estabelecimentos comerciais de alto padrão.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🛠️</div>
-                    <h3>Instalação e Montagem</h3>
-                    <p>Serviço completo de instalação profissional, garantindo qualidade e precisão em cada projeto.</p>
+                    <h3>Instalação Profissional</h3>
+                    <p>Serviço completo de instalação e montagem realizado por profissionais experientes, garantindo precisão total.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🎨</div>
                     <h3>Design Inovador</h3>
-                    <p>Soluções criativas e modernas que acompanham as tendências atuais de design e decoração.</p>
+                    <p>Soluções criativas e modernas que acompanham as tendências atuais de design e decoração contemporânea.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">✨</div>
                     <h3>Acabamento Premium</h3>
-                    <p>Detalhes refinados e acabamentos de excelência que garantem durabilidade e elegância.</p>
+                    <p>Detalhes refinados e acabamentos de excelência que garantem durabilidade, elegância e sofisticação.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="contact-title">Entre em Contato</h2>
+            <h2 class="section-title" style="text-align: center;">Portfólio de Projetos</h2>
+            <p class="section-subtitle">Veja alguns de nossos trabalhos mais recentes e destacados</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">🏠</div>
+                    <h3>Cozinha Luxo</h3>
+                    <p>Projetos residenciais com acabamento premium e design sofisticado</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">🏪</div>
+                    <h3>Loja Comercial</h3>
+                    <p>Marcenaria profissional para estabelecimentos comerciais</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">📦</div>
+                    <h3>Armários Planejados</h3>
+                    <p>Soluções personalizadas para todos os ambientes</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">✨</div>
+                    <h3>Móvel Customizado</h3>
+                    <p>Peças únicas conforme sua visão e necessidade</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">🎯</div>
+                    <h3>Projeto Comercial</h3>
+                    <p>Estruturas e móveis para negócios de todos os portes</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-icon">💎</div>
+                    <h3>Acabamento Fino</h3>
+                    <p>Detalhes que elevam a qualidade de qualquer projeto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Galeria de Trabalhos</h2>
+            <p class="section-subtitle">Conheça alguns dos nossos projetos realizados em marcenaria planejada</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <div class="gallery-icon">🪵</div>
+                    <h3>Cozinha Planejada</h3>
+                    <p>Acabamento premium com marcenaria de excelência</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-icon">🏠</div>
+                    <h3>Armários Residenciais</h3>
+                    <p>Soluções personalizadas para seu lar</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-icon">🏬</div>
+                    <h3>Loja Comercial</h3>
+                    <p>Marcenaria profissional para negócios</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-icon">🎨</div>
+                    <h3>Móveis Planejados</h3>
+                    <p>Funcionalidade e design em perfeita harmonia</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-icon">✨</div>
+                    <h3>Acabamento Fino</h3>
+                    <p>Detalhes que fazem a diferença</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-icon">🎯</div>
+                    <h3>Projeto Customizado</h3>
+                    <p>Sua visão realizada com perfeição</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Entre em Contato</h2>
+            <p class="section-subtitle">Estamos prontos para transformar seu espaço em uma obra-prima</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <h3>📞 Telefone</h3>
-                    <p>Entre em contato conosco para orçamentos e informações sobre nossos serviços.</p>
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefone</h3>
+                    <p>Entre em contato conosco para orçamentos, consultoria e informações sobre nossos serviços premium.</p>
                 </div>
 
                 <div class="contact-item">
-                    <h3>📧 E-mail</h3>
-                    <p>Envie suas dúvidas e solicitações. Responderemos com agilidade e profissionalismo.</p>
+                    <div class="contact-icon">📧</div>
+                    <h3>E-mail</h3>
+                    <p>Envie suas dúvidas, solicitações e projetos. Responderemos com agilidade e profissionalismo.</p>
                 </div>
 
                 <div class="contact-item">
-                    <h3>📍 Localização</h3>
-                    <p>Visite nosso showroom e conheça pessoalmente nossos produtos e soluções.</p>
+                    <div class="contact-icon">📍</div>
+                    <h3>Localização</h3>
+                    <p>Visite nosso showroom e conheça pessoalmente nossos produtos, materiais e soluções.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <p><span class="company-name">Ellevve Planejados LTDA</span></p>
-            <p>Marcenaria Planejada de Excelência</p>
-            <div class="divider" style="background-color: rgba(255, 255, 255, 0.2); margin: 1rem 0;"></div>
-            <p>&copy; 2026 Ellevve Planejados LTDA. Todos os direitos reservados.</p>
+            <p>Marcenaria Planejada de Excelência Premium</p>
+            <div class="footer-divider"></div>
+            <p class="footer-bottom">&copy; 2026 Ellevve Planejados LTDA. Todos os direitos reservados. | Desenvolvido com excelência.</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scroll para links de navegação
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animação de fade-in ao carregar
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '1';
+            });
+        });
+
+        // Efeito de scroll na navegação
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.12)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
 </body>
 </html>
