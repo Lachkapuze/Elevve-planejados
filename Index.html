@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELEVVE Planejados | Marcenaria Planejada</title>
+  <meta name="description" content="Marcenaria planejada residencial e comercial. Cozinhas, dormitórios, closets, escritórios, lojas e móveis sob medida." />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --panel:#11131a;
+      --text:#e9edf6;
+      --muted:#a9b3c7;
+      --line:rgba(255,255,255,.10);
+      --accent:#6ee7b7;
+      --accent2:#60a5fa;
+      --max:1100px;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 15%, rgba(110,231,183,.16), transparent 60%),
+        radial-gradient(900px 800px at 50% 120%, rgba(255,255,255,.07), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,12,16,.88), rgba(11,12,16,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:220px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(110,231,183,.95), transparent 55%),
+        radial-gradient(circle at 75% 65%, rgba(96,165,250,.90), transparent 60%),
+        #0f1220;
+      border:1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .brand h1{
+      font-size:15px; margin:0; letter-spacing:.6px; font-weight:800;
+    }
+    .brand p{
+      margin:2px 0 0; font-size:12px; color:var(--muted);
+    }
+
+    .rightTop{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(17,19,26,.55);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .waIcon{
+      width:16px; height:16px; display:inline-block;
+      filter: drop-shadow(0 0 14px rgba(110,231,183,.25));
+    }
+    .waNumber{
+      color:rgba(233,237,246,.92);
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    /* Hero */
+    .hero{
+      padding:34px 0 10px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .heroCard{
+      border:1px solid var(--line);
+      background: rgba(17,19,26,.70);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(130deg, rgba(110,231,183,.18), rgba(96,165,250,.18), transparent 60%);
+      filter: blur(18px);
+      z-index:0;
+    }
+    .heroCard > *{position:relative; z-index:1}
+
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      color:var(--muted);
+      font-size:12px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(110,231,183,.55);
+    }
+    .hero h2{
+      margin:14px 0 10px;
+      font-size:34px;
+      line-height:1.12;
+      letter-spacing:-.5px;
+    }
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width:62ch;
+    }
+
+    .stats{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      background: rgba(0,0,0,.18);
+    }
+    .stat strong{display:block; font-size:14px}
+    .stat span{display:block; margin-top:3px; color:var(--muted); font-size:12px}
+
+    .infoCard{
+      border:1px solid var(--line);
+      background: rgba(17,19,26,.55);
+      border-radius:var(--radius);
+      padding:22px;
+      height:100%;
+    }
+    .infoCard h3{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:.3px;
+      color:rgba(233,237,246,.92);
+    }
+    .list{margin:0; padding:0; list-style:none; display:grid; gap:10px}
+    .list li{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(0,0,0,.15);
+    }
+    .list li b{display:block; font-size:13px}
+    .list li small{display:block; margin-top:3px; color:var(--muted); font-size:12px}
+
+    .divider{margin:22px 0 0; border-top:1px solid var(--line)}
+
+    /* Cards serviços */
+    section{margin-top:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(17,19,26,.55);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .card h4{margin:0 0 8px; font-size:14px; letter-spacing:.3px}
+    .card p{margin:0; color:var(--muted); font-size:13px}
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    /* Galeria que aparece ao rolar */
+    .gallery{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .shot{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background: rgba(17,19,26,.55);
+      position:relative;
+      min-height: 210px;
+      transform: translateY(14px);
+      opacity: 0;
+      transition: transform .75s ease, opacity .75s ease;
+    }
+    .shot.visible{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .shot .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.04);
+    }
+    .shot:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.06) 55%, rgba(0,0,0,.18));
+      pointer-events:none;
+    }
+    .shot .cap{
+      position:absolute; left:14px; right:14px; bottom:12px;
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .shot .cap strong{
+      font-size:13px;
+      letter-spacing:.2px;
+      color:rgba(233,237,246,.95);
+    }
+    .shot .cap span{
+      font-size:12px;
+      color:rgba(233,237,246,.78);
+    }
+
+    /* tamanhos */
+    .span-6{grid-column: span 6;}
+    .span-4{grid-column: span 4;}
+    .span-8{grid-column: span 8;}
+    .span-12{grid-column: span 12;}
+
+    footer{
+      margin-top:26px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(17,19,26,.55);
+      padding:18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 940px){
+      .hero{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .span-6,.span-4,.span-8,.span-12{grid-column: span 12;}
+      .hero h2{font-size:30px}
+      .rightTop{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>ELEVVE PLANEJADOS</h1>
+          <p>Marcenaria planejada • Residencial e Comercial</p>
+        </div>
+      </div>
+
+      <div class="rightTop">
+        <div class="chip" title="WhatsApp">
+          <!-- Ícone WhatsApp (SVG) -->
+          <svg class="waIcon" viewBox="0 0 32 32" aria-hidden="true">
+            <path fill="var(--accent)" d="M19.11 17.67c-.27-.14-1.61-.79-1.86-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16 0-.34 0-.52 0-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.64 1.1 2.82c.14.18 1.91 2.92 4.62 4.1.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.61-.66 1.84-1.3.23-.64.23-1.18.16-1.3-.07-.12-.25-.2-.52-.34z"/>
+            <path fill="var(--accent)" d="M16.02 3.2c-7.07 0-12.82 5.74-12.82 12.8 0 2.26.6 4.46 1.74 6.4L3 29.2l6.98-1.83a12.8 12.8 0 0 0 6.04 1.54h.01c7.07 0 12.82-5.74 12.82-12.8 0-3.42-1.34-6.64-3.77-9.06A12.75 12.75 0 0 0 16.02 3.2zm0 23.56h-.01c-1.94 0-3.85-.52-5.52-1.5l-.4-.24-4.14 1.08 1.1-4.03-.26-.41a10.63 10.63 0 0 1-1.64-5.65c0-5.86 4.78-10.62 10.66-10.62 2.84 0 5.5 1.1 7.51 3.11a10.56 10.56 0 0 1 3.12 7.51c0 5.86-4.78 10.75-10.42 10.75z"/>
+          </svg>
+          <span>WhatsApp:</span>
+          <span class="waNumber">(11) 93731-0094</span>
+        </div>
+
+        <div class="chip">Atendimento sob consulta • Projetos sob medida</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-label="Apresentação">
+      <div class="heroCard">
+        <div class="kicker"><span class="dot"></span> Planejados sob medida com acabamento refinado</div>
+        <h2>Marcenaria planejada para transformar sua casa ou seu comércio com funcionalidade e presença.</h2>
+        <p>
+          Projeto, fabricação e montagem de móveis sob medida com foco em aproveitamento de espaço,
+          alinhamento perfeito e visual moderno. Atendemos cozinhas, dormitórios, closets, escritórios,
+          lojas e ambientes comerciais em geral.
+        </p>
+
+        <div class="stats" aria-label="Destaques">
+          <div class="stat">
+            <strong>Foco em comércio</strong>
+            <span>Móveis práticos, resistentes e com visual limpo</span>
+          </div>
+          <div class="stat">
+            <strong>Planejados completos</strong>
+            <span>Do estudo do espaço ao acabamento final</span>
+          </div>
+          <div class="stat">
+            <strong>Padrão profissional</strong>
+            <span>Precisão, limpeza e capricho na montagem</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="infoCard" aria-label="O que entregamos">
+        <h3>O que você pode esperar</h3>
+        <ul class="list">
+          <li>
+            <b>Layout bem pensado</b>
+            <small>Mais espaço útil, circulação melhor e estética alinhada.</small>
+          </li>
+          <li>
+            <b>Acabamento de alto padrão (sem luxo)</b>
+            <small>Esquadro, alinhamento e detalhes bem resolvidos.</small>
+          </li>
+          <li>
+            <b>Móveis feitos para durar</b>
+            <small>Estrutura firme, ferragens adequadas e montagem caprichada.</small>
+          </li>
+          <li>
+            <b>Atendimento direto</b>
+            <small>Comunicação clara e responsabilidade do começo ao fim.</small>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="divider"></div>
+
+    <section aria-label="Serviços">
+      <h3 style="margin:18px 0 0; font-size:16px; letter-spacing:.3px;">Serviços de marcenaria planejada</h3>
+      <p style="margin:8px 0 0; color:var(--muted); font-size:13px;">
+        Produzimos móveis sob medida para residências e comércios, com soluções personalizadas para cada espaço.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Cozinhas Planejadas</h4>
+          <p>Armários superiores e inferiores, nichos, torre quente, despenseiros e integração com bancada.</p>
+        </div>
+        <div class="card">
+          <h4>Lavanderias</h4>
+          <p>Armários funcionais, colunas, aéreos, organização e soluções para lava e seca.</p>
+        </div>
+        <div class="card">
+          <h4>Dormitórios</h4>
+          <p>Guarda-roupas, cabeceiras, painéis e soluções para ambientes pequenos com visual limpo.</p>
+        </div>
+        <div class="card">
+          <h4>Closets</h4>
+          <p>Divisões inteligentes, gaveteiros, cabideiros, sapateiras e alto aproveitamento.</p>
+        </div>
+        <div class="card">
+          <h4>Escritórios</h4>
+          <p>Mesas, estações de trabalho, armários e estantes pensados para produtividade.</p>
+        </div>
+        <div class="card">
+          <h4>Lojas e Comércios</h4>
+          <p>Balcões, expositores, prateleiras e mobiliário comercial para fluxo e durabilidade.</p>
+        </div>
+        <div class="card">
+          <h4>Recepções</h4>
+          <p>Balcões de recepção, aparadores, nichos e soluções sob medida para atendimento.</p>
+        </div>
+        <div class="card">
+          <h4>Painéis e Home</h4>
+          <p>Painéis de TV, rack, nichos e composições modernas com acabamento caprichado.</p>
+        </div>
+        <div class="card">
+          <h4>Projetos sob medida</h4>
+          <p>Quando não existe “padrão”, a solução é feita para o seu espaço e para seu uso real.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Galeria de ambientes">
+      <h3 style="margin:22px 0 0; font-size:16px; letter-spacing:.3px;">Alguns estilos de móveis e ambientes</h3>
+      <p style="margin:8px 0 0; color:var(--muted); font-size:13px;">
+        Imagens ilustrativas para mostrar possibilidades de acabamentos e composições (podem variar conforme projeto).
+      </p>
+
+      <div class="gallery" id="gallery">
+        <!-- Imagens da web (Unsplash). Se quiser, depois eu troco por fotos reais suas. -->
+        <article class="shot span-8" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1556912998-c57cc6b63cd7?auto=format&fit=crop&w=1600&q=80');"></div>
+          <div class="cap">
+            <strong>Cozinha planejada</strong>
+            <span>Alinhamento + funcionalidade</span>
+          </div>
+        </article>
+
+        <article class="shot span-4" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="cap">
+            <strong>Banheiros / gabinetes</strong>
+            <span>Acabamento limpo</span>
+          </div>
+        </article>
+
+        <article class="shot span-6" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1582582494700-56a47d0d0f2b?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="cap">
+            <strong>Closet / roupeiro</strong>
+            <span>Organização real</span>
+          </div>
+        </article>
+
+        <article class="shot span-6" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="cap">
+            <strong>Escritório</strong>
+            <span>Produtividade + estética</span>
+          </div>
+        </article>
+
+        <article class="shot span-4" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="cap">
+            <strong>Painéis / sala</strong>
+            <span>Composição moderna</span>
+          </div>
+        </article>
+
+        <article class="shot span-8" data-animate>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80');"></div>
+          <div class="cap">
+            <strong>Ambiente comercial</strong>
+            <span>Balcões e expositores</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Como trabalhamos">
+      <h3 style="margin:22px 0 0; font-size:16px; letter-spacing:.3px;">Como trabalhamos</h3>
+      <div class="twoCol">
+        <div class="card">
+          <h4>1) Levantamento e entendimento</h4>
+          <p>Medidas, pontos hidráulicos/elétricos, rotina do ambiente e prioridade: espaço, estética ou custo-benefício.</p>
+        </div>
+        <div class="card">
+          <h4>2) Definição do projeto</h4>
+          <p>Distribuição dos módulos, profundidades, gavetas e alinhamentos para o resultado ficar “redondo”.</p>
+        </div>
+        <div class="card">
+          <h4>3) Fabricação</h4>
+          <p>Produção em MDF conforme especificação, com cuidado de esquadro, bordas e montagem limpa.</p>
+        </div>
+        <div class="card">
+          <h4>4) Montagem e acabamento</h4>
+          <p>Instalação com capricho, ajustes finos e acabamento para parecer que “nasceu” no ambiente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Materiais e acabamentos">
+      <h3 style="margin:22px 0 0; font-size:16px; letter-spacing:.3px;">Materiais e acabamentos</h3>
+      <div class="twoCol">
+        <div class="card">
+          <h4>MDF e padrões</h4>
+          <p>MDF branco TX e combinações com madeirados para contraste elegante e visual moderno.</p>
+        </div>
+        <div class="card">
+          <h4>Ferragens e detalhes</h4>
+          <p>Ferragens definidas conforme uso do móvel, priorizando suavidade, resistência e custo-benefício.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer aria-label="Rodapé">
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <strong style="color:rgba(233,237,246,.92);">ELEVVE PLANEJADOS</strong><br/>
+          <span>WhatsApp: (11) 93731-0094</span>
+        </div>
+        <div style="text-align:right;">
+          <span>© <span id="year"></span> • Página informativa</span><br/>
+          <span>Imagens ilustrativas • Conteúdo sujeito a ajuste conforme projeto</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Ano automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Animação ao rolar (imagens aparecem conforme entra na tela)
+    const items = document.querySelectorAll("[data-animate]");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("visible");
+      });
+    }, { threshold: 0.18 });
+
+    items.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
